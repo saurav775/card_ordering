@@ -31,6 +31,10 @@ a, a:hover, a:active {
     justify-content: space-between;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
 // Margin Classes
 .ml-0dot5 {
     margin-left: 0.5rem;

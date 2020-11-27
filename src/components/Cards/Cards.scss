@@ -1,0 +1,24 @@
+@import '../../constants/common.scss';
+@import '../../constants/colors.scss';
+@import '../../constants/typography.scss';
+
+.title-text {
+    @include bold-font;
+    font-size: 1.5rem;
+    color: $black;
+}
+
+.line {
+    width: 48px;
+    border-bottom: 1px solid $blue;
+}
+
+.star-icon {
+    color: $blue;
+}
+
+.icon-container {
+    padding: 4px;
+    border-radius: 50%;
+    background: $very-light-grey;
+}

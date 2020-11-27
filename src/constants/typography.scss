@@ -1,0 +1,19 @@
+@mixin font-family() {
+	@import url(//fonts.googleapis.com/css2?family=Nunito+Sans);
+	font-family: 'Nunito sans';
+}
+
+@mixin regular-font() {
+	@include font-family;
+	font-weight: 300;
+}
+
+@mixin medium-font() {
+	@include font-family;
+	font-weight: 600;
+}
+
+@mixin bold-font() {
+	@include font-family;
+	font-weight: 800;
+}

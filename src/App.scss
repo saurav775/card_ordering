@@ -1,4 +1,8 @@
+@import './constants/typography.scss';
+
 body {
     margin: 0;
     padding: 0;
+    @include regular-font;
+	font-size: 0.875rem;
 }
