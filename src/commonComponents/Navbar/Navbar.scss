@@ -1,0 +1,21 @@
+@import '../../constants/colors.scss';
+@import '../../constants/common.scss';
+
+.logo {
+    color: $blue;
+    font-size: 24px
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.cart-icon {
+    font-size: 24px;
+}
+
+.cart-nav {
+    box-shadow: 2px 2px 8px $light-grey;
+}
