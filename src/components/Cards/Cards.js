@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Navbar } from "../../commonComponents";
 import { fetchCards } from "../../Actions";
+import Card from "../Card";
 import "./Cards.scss";
 
 const Cards = (props) => {
@@ -29,8 +30,8 @@ const Cards = (props) => {
               </div>
             </div>
           </div>
-          <div className="">
-            {cards && cards.map((ele) => <span>{ele.name}</span>)}
+          <div className="d-flex flex-wrap flex-space-between">
+            {cards && cards.map((ele) => <Card data={ele} key={ele.id} />)}
           </div>
         </div>
       </div>

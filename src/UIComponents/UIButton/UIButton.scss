@@ -1,0 +1,22 @@
+@import "../../constants/colors.scss";
+@import "../../constants/typography.scss";
+
+.btn {
+  outline: none;
+  width: 100%;
+  padding: 8px 0;
+  @include bold-font;
+  border: 1px solid $blue;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.no-fill-btn {
+  color: $blue;
+  background: transparent;
+}
+
+.fill-btn {
+  background: $blue;
+  color: $white;
+}
