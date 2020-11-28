@@ -46,32 +46,34 @@ const Cart = (props) => {
                 </div>
                 <div className="border-bottom pl-1 pr-1 mb-2">
                   {localData.filter((e) => e.quantity > 0).length > 0 ? (
-                    localData.map(
-                      (ele, id) =>
-                        ele.quantity > 0 && (
-                          <div
-                            className="d-flex flex-space-between mb-2"
-                            key={ele.id}
-                          >
-                            <div className="table-data slno d-flex justify-center">
-                              {id + 1}
+                    localData
+                      .filter((e) => e.quantity > 0)
+                      .map(
+                        (ele, id) =>
+                          ele.quantity > 0 && (
+                            <div
+                              className="d-flex flex-space-between mb-2"
+                              key={ele.id}
+                            >
+                              <div className="table-data slno d-flex justify-center">
+                                {id + 1}
+                              </div>
+                              <div className="table-data items d-flex justify-center">
+                                {ele.name.toTitleCase()}
+                              </div>
+                              <div className="table-data qty d-flex justify-center">
+                                <PlusMinus
+                                  cardData={{
+                                    id: ele.id,
+                                    name: ele.name,
+                                    final_price: ele.final_price,
+                                    original_price: ele.original_price,
+                                  }}
+                                />
+                              </div>
                             </div>
-                            <div className="table-data items d-flex justify-center">
-                              {ele.name.toTitleCase()}
-                            </div>
-                            <div className="table-data qty d-flex justify-center">
-                              <PlusMinus
-                                cardData={{
-                                  id: ele.id,
-                                  name: ele.name,
-                                  final_price: ele.final_price,
-                                  original_price: ele.original_price,
-                                }}
-                              />
-                            </div>
-                          </div>
-                        )
-                    )
+                          )
+                      )
                   ) : (
                     <div className="table-data mb-2">No items to display</div>
                   )}
