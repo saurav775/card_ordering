@@ -1,13 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Navbar } from "../../commonComponents";
 import { UIButton } from "../../UIComponents";
+import { loadFromLocal } from '../../Actions';
 import "../../utils";
 import "./Cart.scss";
 
 const Cart = (props) => {
-  const { localData } = props;
+  const { localData, loadFromLocal } = props;
+
+  useEffect(() => {
+    loadFromLocal()
+  }, [loadFromLocal, localData])
+
   return (
     <Fragment>
       <Navbar fromCart={true} />
@@ -135,4 +141,6 @@ const mapStateToProps = (state) => {
   return { ...loadFromLocal };
 };
 
-export default connect(mapStateToProps, {})(Cart);
+const mapActionCreator = { loadFromLocal }
+
+export default connect(mapStateToProps, mapActionCreator)(Cart);
