@@ -148,6 +148,10 @@ a:active {
   margin: 0 4rem;
 }
 
+.no-disp {
+  display: none !important;
+}
+
 @media (max-width: 767px) {
   .container {
     margin: 0 1rem;

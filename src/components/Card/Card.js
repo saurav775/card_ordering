@@ -25,7 +25,15 @@ const Card = (props) => {
 
   return (
     <div className="card-container mb-5 d-flex flex-column">
-      <img src={img_url} className="card-image" alt="card" />
+      <div className="card-image-container">
+        <img src={img_url} className="card-image" alt="card" />
+        <div
+          className={[
+            "discount-badge",
+            !(original_price - final_price) && "no-disp",
+          ].join(" ")}
+        >{`${100 - (final_price / original_price) * 100}% OFF`}</div>
+      </div>
       <div className="d-flex mt-2 flex-space-between pl-1 pr-1">
         <div className="card-title">{name.toTitleCase()}</div>
         <div className="price">
