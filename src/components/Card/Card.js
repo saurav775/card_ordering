@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { UIButton } from "../../UIComponents";
 import { PlusMinus } from "../../commonComponents";
 import { addToCart, loadFromLocal } from "../../Actions";
-import "../../utils";
+import { toTitleCase } from '../../utils';
 import "./Card.scss";
 
 const Card = (props) => {
@@ -35,7 +35,7 @@ const Card = (props) => {
         >{`${100 - (final_price / original_price) * 100}% OFF`}</div>
       </div>
       <div className="d-flex mt-2 flex-space-between pl-1 pr-1">
-        <div className="card-title">{name.toTitleCase()}</div>
+        <div className="card-title">{toTitleCase(name)}</div>
         <div className="price">
           {original_price ? (
             <div className="d-flex">

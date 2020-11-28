@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Navbar, PlusMinus } from "../../commonComponents";
 import { UIButton } from "../../UIComponents";
 import { loadFromLocal } from "../../Actions";
-import "../../utils";
+import { toTitleCase } from "../../utils";
 import "./Cart.scss";
 
 const Cart = (props) => {
@@ -59,7 +59,7 @@ const Cart = (props) => {
                                 {id + 1}
                               </div>
                               <div className="table-data items d-flex justify-center">
-                                {ele.name.toTitleCase()}
+                                {toTitleCase(ele.name)}
                               </div>
                               <div className="table-data qty d-flex justify-center">
                                 <PlusMinus
