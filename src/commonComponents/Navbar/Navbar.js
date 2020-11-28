@@ -7,6 +7,10 @@ import "./Navbar.scss";
 
 const Navbar = (props) => {
   const { fromCart, localData } = props;
+  const cartDataCount = localData.reduce((acc, cv) => {
+    acc = acc + cv.quantity;
+    return acc;
+  }, 0)
   return (
     <div className={[fromCart && "cart-nav"].join(" ")}>
       <div className="container">
@@ -19,11 +23,8 @@ const Navbar = (props) => {
             {!fromCart && (
               <Link to="/cart">
                 <div className="cart-icon-container">
-                  <div className="count-items d-flex flex-center">
-                    {localData.reduce((acc, cv) => {
-                      acc = acc + cv.quantity;
-                      return acc;
-                    }, 0)}
+                  <div className={["count-items d-flex flex-center", cartDataCount === 0 && 'no-disp'].join(' ')}>
+                    {cartDataCount}
                   </div>
                   <i className="fa fa-shopping-cart cart-icon"></i>
                 </div>

@@ -26,7 +26,7 @@ const PlusMinus = (props) => {
   const handleMinus = () => [removeFromCart(id)];
 
   return (
-    <div className="d-flex flex-space-between">
+    <div className="d-flex flex-space-between w100">
       <div
         className={[
           "plusminus-icon-container d-flex flex-center minus",

@@ -13,54 +13,75 @@
 }
 
 .col-1-container {
-    border: 2px solid $light-grey;
-    width: 57%;
-    border-radius: 4px;
+  border: 2px solid $light-grey;
+  width: 57%;
+  border-radius: 4px;
 }
 
 .col-2-container {
-    width: 38%;
-    background: $grey-blue;
-    border-radius: 4px;
+  width: 38%;
+  background: $grey-blue;
+  border-radius: 4px;
 }
 
 .border-bottom {
-    border-bottom: 2px solid $light-grey;
+  border-bottom: 2px solid $light-grey;
 }
 
 .add-more-text {
-    color: $blue;
-    @include bold-font;
-    cursor: pointer;
+  color: $blue;
+  @include bold-font;
+  cursor: pointer;
 }
 
 .table-heading {
-    @include bold-font;
-    color: $dark-grey;
-    font-size: 0.7rem;
+  @include bold-font;
+  color: $dark-grey;
+  font-size: 0.7rem;
 }
 
 .table-data {
-    @include medium-font;
-    color: $dark-grey;
+  @include medium-font;
+  color: $dark-grey;
 }
 
 .green-text {
-    color: $green;
+  color: $green;
 }
 
 .sub-title-text {
-    @include bold-font;
+  @include bold-font;
 }
 
 .sub-title-price-text {
-    @include bold-font;
-    font-size: 1.2rem;
+  @include bold-font;
+  font-size: 1.2rem;
+}
+
+.slno {
+  width: 10%;
+}
+.qty {
+  width: 30%;
+}
+
+.items {
+  width: 50%;
 }
 
 @media (max-width: 767px) {
-    .col-1-container, .col-2-container {
-        width: 100%;
-        margin-bottom: 3rem;
-    }
+  .col-1-container,
+  .col-2-container {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .removeOnMobile {
+    margin: 0 !important;
+  }
+  .pm-2 {
+    padding: 1.5rem 0.8rem;
+  }
+  .items {
+    text-align: center;
+  }
 }

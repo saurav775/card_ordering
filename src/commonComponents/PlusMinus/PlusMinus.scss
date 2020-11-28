@@ -34,3 +34,13 @@
 .grey-border {
   border: 1px solid $grey;
 }
+
+.w100 {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .grey-bg {
+    padding: 0.3rem;
+  }
+}
