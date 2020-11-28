@@ -1,21 +1,37 @@
-@import '../../constants/colors.scss';
-@import '../../constants/common.scss';
+@import "../../constants/colors.scss";
+@import "../../constants/common.scss";
 
 .logo {
-    color: $blue;
-    font-size: 24px
+  color: $blue;
+  font-size: 24px;
 }
 
 .avatar {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 
 .cart-icon {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .cart-nav {
-    box-shadow: 2px 2px 8px $light-grey;
+  box-shadow: 2px 2px 8px $light-grey;
+}
+
+.count-items {
+  position: absolute;
+  right: -15px;
+  top: -10px;
+  background: red;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: $white;
+}
+
+.cart-icon-container {
+  position: relative;
 }
