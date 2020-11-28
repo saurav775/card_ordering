@@ -7,7 +7,7 @@ import "./Navbar.scss";
 
 const Navbar = (props) => {
   const { fromCart, localData } = props;
-  const cartDataCount = localData.reduce((acc, cv) => {
+  const cartDataCount = localData && localData.length > 0 && localData.reduce((acc, cv) => {
     acc = acc + cv.quantity;
     return acc;
   }, 0)

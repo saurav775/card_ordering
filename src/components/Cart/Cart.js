@@ -28,7 +28,11 @@ const Cart = (props) => {
             </div>
           </div>
           <div className="mt-2 title-text">
-            Order Summary ({localData.filter((e) => e.quantity > 0).length})
+            Order Summary (
+            {localData && localData.length > 0
+              ? localData.filter((e) => e.quantity > 0).length
+              : "0"}
+            )
           </div>
           <div className="mt-2 d-flex flex-space-between flex-wrap mb-4">
             <div className="d-flex flex-column col-1-container">
@@ -45,7 +49,9 @@ const Cart = (props) => {
                   </div>
                 </div>
                 <div className="border-bottom pl-1 pr-1 mb-2">
-                  {localData.filter((e) => e.quantity > 0).length > 0 ? (
+                  {localData &&
+                  localData.length > 0 &&
+                  localData.filter((e) => e.quantity > 0).length > 0 ? (
                     localData
                       .filter((e) => e.quantity > 0)
                       .map(
@@ -81,7 +87,9 @@ const Cart = (props) => {
                 <div className="add-more-text pl-1 mb-2">
                   <Link to="/">
                     <i className="fa fa-plus mr-0dot5"></i>
-                    {localData.filter((e) => e.quantity > 0).length > 0
+                    {localData &&
+                    localData.length > 0 &&
+                    localData.filter((e) => e.quantity > 0).length > 0
                       ? "Add more items"
                       : "Add items"}
                   </Link>
@@ -94,7 +102,9 @@ const Cart = (props) => {
                   <div className="sub-title-text">Price Details</div>
                 </div>
                 <div className="border-bottom pl-1 pr-1 mb-2">
-                  {localData.filter((e) => e.quantity > 0).length > 0 ? (
+                  {localData &&
+                  localData.length > 0 &&
+                  localData.filter((e) => e.quantity > 0).length > 0 ? (
                     localData.map(
                       (ele, id) =>
                         ele.quantity > 0 && (
@@ -114,54 +124,56 @@ const Cart = (props) => {
                   )}
                 </div>
                 <Fragment>
-                  {localData.filter((e) => e.quantity > 0).length > 0 && (
-                    <Fragment>
-                      <div className="border-bottom pl-1 pr-1 mb-2">
-                        <div className="d-flex flex-space-between mb-2">
-                          <div className="">Total Savings</div>
-                          <div className="green-text">
-                            {"- $ "}
+                  {localData &&
+                    localData.length > 0 &&
+                    localData.filter((e) => e.quantity > 0).length > 0 && (
+                      <Fragment>
+                        <div className="border-bottom pl-1 pr-1 mb-2">
+                          <div className="d-flex flex-space-between mb-2">
+                            <div className="">Total Savings</div>
+                            <div className="green-text">
+                              {"- $ "}
+                              {localData.reduce((acc, currval) => {
+                                acc =
+                                  acc +
+                                  (currval.original_price - currval.price) *
+                                    currval.quantity;
+                                return acc;
+                              }, 0)}
+                              {".00"}
+                            </div>
+                          </div>
+                          <div className="d-flex flex-space-between mb-2">
+                            <div className="">Delivery Fee</div>
+                            <div className="">{`$ 5.00`}</div>
+                          </div>
+                          <div className="d-flex flex-space-between mb-2">
+                            <div className="">
+                              Tax and Charges{" "}
+                              <i className="fa fa-exclamation-circle ml-0dot5"></i>
+                            </div>
+                            <div className="">{`$ 2.00`}</div>
+                          </div>
+                        </div>
+                        <div className="d-flex flex-space-between pl-1 pr-1 mb-2">
+                          <div className="sub-title-text">To Pay</div>
+                          <div className="sub-title-price-text">
+                            {"$ "}
                             {localData.reduce((acc, currval) => {
                               acc =
                                 acc +
-                                (currval.original_price - currval.price) *
-                                  currval.quantity;
+                                (currval.price * currval.quantity -
+                                  (currval.original_price - currval.price) *
+                                    currval.quantity);
                               return acc;
-                            }, 0)}
-                            {".00"}
+                            }, 7)}
                           </div>
                         </div>
-                        <div className="d-flex flex-space-between mb-2">
-                          <div className="">Delivery Fee</div>
-                          <div className="">{`$ 5.00`}</div>
+                        <div className="d-flex justify-center pl-1 pr-1">
+                          <UIButton type={"fill-in"} text={"PLACE ORDER"} />
                         </div>
-                        <div className="d-flex flex-space-between mb-2">
-                          <div className="">
-                            Tax and Charges{" "}
-                            <i className="fa fa-exclamation-circle ml-0dot5"></i>
-                          </div>
-                          <div className="">{`$ 2.00`}</div>
-                        </div>
-                      </div>
-                      <div className="d-flex flex-space-between pl-1 pr-1 mb-2">
-                        <div className="sub-title-text">To Pay</div>
-                        <div className="sub-title-price-text">
-                          {"$ "}
-                          {localData.reduce((acc, currval) => {
-                            acc =
-                              acc +
-                              (currval.price * currval.quantity -
-                                (currval.original_price - currval.price) *
-                                  currval.quantity);
-                            return acc;
-                          }, 7)}
-                        </div>
-                      </div>
-                      <div className="d-flex justify-center pl-1 pr-1">
-                        <UIButton type={"fill-in"} text={"PLACE ORDER"} />
-                      </div>
-                    </Fragment>
-                  )}
+                      </Fragment>
+                    )}
                 </Fragment>
               </div>
             </div>
