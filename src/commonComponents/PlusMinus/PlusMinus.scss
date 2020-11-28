@@ -1,0 +1,36 @@
+@import "../../constants/colors.scss";
+
+.plusminus-icon-container {
+  width: 20%;
+  padding: 0.7rem;
+  color: $white;
+  cursor: pointer;
+}
+
+.plus {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.minus {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.blue-bg {
+  background: $blue;
+}
+
+.grey-bg {
+  background: $grey;
+}
+
+.count-text {
+    width: 60%;
+}
+
+.blue-border {
+  border: 1px solid $blue;
+}
+
+.grey-border {
+  border: 1px solid $grey;
+}

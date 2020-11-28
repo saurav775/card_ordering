@@ -43,7 +43,7 @@ const Cart = () => {
               </Link>
             </div>
           </div>
-          <div className="mt-2 title-text">Order Summary (3 items)</div>
+          <div className="mt-2 title-text">Order Summary ({data.length})</div>
           <div className="mt-2 d-flex flex-space-between flex-wrap mb-4">
             <div className="d-flex flex-column col-1-container">
               <div className="p-2">
